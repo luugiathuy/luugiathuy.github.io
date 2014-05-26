@@ -1,0 +1,24 @@
+---
+layout: post
+title: Set up Qt for Visual Studio 2008
+categories:
+- C++
+tags:
+- qt
+- visual studio
+status: publish
+type: post
+published: true
+---
+<p>My upcoming project will need to work with Qt (http://qt.nokia.com/products/). Our team have decided to not use Qt Creator for the project. We use Visual Studio 2008 since it is easy to configure and all members are familiar with it. In this post, I will share with you how to configure Qt for visual studio 2008.<!--more--></p>
+<p><strong><em>Step 1</em></strong>: Make sure visual studio 2008 has been updated to <strong>SP1</strong>. You can download the update file <a href="http://www.microsoft.com/download/en/details.aspx?id=13276" target="_blank">here</a>.</p>
+<p><strong><em>Step 2</em></strong>: Download and install the latest Qt library for Visual Studio from: <a href="http://qt.nokia.com/downloads/windows-cpp-vs2008" target="_blank">http://qt.nokia.com/downloads/windows-cpp-vs2008</a></p>
+<p><strong><em>Step 3</em></strong>: Set up Windows Path in Environment Variables</p>
+<ol>
+<li>In System Variables, create new variable named <strong>QTDIR</strong> and its value is the directory which Qt is installed (C:\Qt4.7.3 in my case).</li>
+<li>Add "<strong>;%QTDIR%bin</strong>" to the <strong>PATH</strong> variable.</li>
+</ol>
+<p><strong><em>Step 4</em></strong>: Download and install Qt add-in for Visual Studio from <a href="http://qt.nokia.com/downloads/visual-studio-add-in" target="_blank">http://qt.nokia.com/downloads/visual-studio-add-in</a></p>
+<p>That's all we need to set up Qt for Visual Studio :-). Now you can open visual studio, select New Project..., we can see the <strong>Qt4 Projects</strong> in the list and choose the type of project we want to create:<img class="aligncenter size-full wp-image-538" alt="QT New Project Dialog" src="http://luugiathuy.com/wp-content/uploads/2011/07/qtnewproject.jpg" width="805" height="540" /></p>
+<p>Then in the next step, we will need to select the Qt libraries to include in the project. Most often we will use GUI library, OpenGL library and XML library:<img class="aligncenter size-full wp-image-540" alt="QT New Project Set Up" src="http://luugiathuy.com/wp-content/uploads/2011/07/qtnewprojectsetup.jpg" width="626" height="529" /></p>
+<p>Visual Studio automatically create the project and configure Qt for you. All you need now is code what you want :-D Hope it will help you!</p>

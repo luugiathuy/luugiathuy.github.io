@@ -1,0 +1,19 @@
+---
+layout: post
+title: iOS7 interactivePopGestureRecognizer for UINavigationController with hidden
+  navigation bar
+categories:
+- iOS
+tags:
+- ios
+- uinavigationbar
+- uinavigationcontroller
+status: publish
+type: post
+published: true
+---
+<p>iOS7 introduces interactivePopGestureRecognizer property which is used for popping current view controller stack by a gesture (swipe right gesture from left edge as default). However if the navigation bar is hidden or the app uses a custom back button for navigation bar, this feature will not work. A bit lines of code can make this feature works again for those cases.<!--more--> In viewDidLoad() of view controller (or application:didFinishLaunchingWithOptions: of AppDelegate), we set the interactivePopGestureRecognizer.delegate to nil as below:</p>
+<pre lang="objc">if (floor(NSFoundationVersionNumber) &gt; NSFoundationVersionNumber_iOS_6_1) {
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+}</pre>
+<p>[caption id="attachment_352" align="aligncenter" width="200"]<img class="size-full wp-image-352" alt="interactivePopgestureRecognizer example" src="http://107.170.27.162/wp-content/uploads/2013/11/interactivepopgesturerecognizer.png" width="200" height="355" /> interactivePopgestureRecognizer example in Surf-face app[/caption]</p>
