@@ -17,8 +17,8 @@ Inspired by the navigation bar functionality seen in Chrome, Facebook and Instag
 
 Screenshots:
 
-![](http://luugiathuy.com/wp-content/uploads/2013/12/GTScrollNavigationBar1.png)
-![](http://luugiathuy.com/wp-content/uploads/2013/12/GTScrollNavigationBar2.png)
+![](/images/GTScrollNavigationBar1.png)
+![](/images/GTScrollNavigationBar2.png)
 
 The GTScrollNavigationBar class inherits UINavigationBar and has a scrollView property which the GTScrollNavigationBar object will follow the scrolling. When setting the scrollView property, GTScrollNavigationBar will add a UIPanGestureRecognizer to the scrollView and have a function called `handlePan:` to handle the gesture.
 
