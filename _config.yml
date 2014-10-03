@@ -1,10 +1,11 @@
 # Site settings
 title: Luu Gia Thuy
 email: luugiathuy@gmail.com
-username: luugiathuy
 description: "my coding journal"
 baseurl: ""
 url: "http://luugiathuy.com"
+twitter_username: luugiathuy
+github_username:  luugiathuy
 
 # Build settings
 markdown: kramdown
