@@ -12,7 +12,7 @@ type: post
 published: true
 ---
 
-In OpenGL, frame buffer is the final destination in the rendering pipeline. When we create a window for our OpenGL application, it automatically create frame buffer object for us. However we need to create our own frame buffer object in some cases, such as offscreen rendering. OpenGL applications in iOS also need to create frame buffer object. In this post, I will share with you how we can create a frame buffer object (FBO).
+In OpenGL, frame buffer is the final destination in the rendering pipeline. When we create a window for our OpenGL application, it automatically create frame buffer object for us. However we need to create our own frame buffer object in some cases, such as offscreen rendering. OpenGL applications in iOS also need to create frame buffer object. In this post, I will share with you how we can create a frame buffer object (FBO).<!-- more -->
 
 Here is the code to create a FBO with 1 color attachment and depth buffer. This is the most common FBO we will use:
 

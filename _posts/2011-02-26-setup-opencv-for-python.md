@@ -13,7 +13,8 @@ published: true
 
 I have always struggled when trying to set up OpenCV for Python before. So I
 decide to write this post to help myself in the future and share with you =).
-My setup is for OpenCV 2.2 but I think you can apply for any version of OpenCV.<!--more-->
+My setup is for OpenCV 2.2 but I think you can apply for any version of OpenCV.
+<!-- more -->
 
 **Step 1:** Download and install **Python 2.7** from [Python site][Python2.7.2]{:target="_blank"}.
 You need to install the *32bit version* of Python. OpenCV currently does not

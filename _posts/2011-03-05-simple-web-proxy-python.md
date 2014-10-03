@@ -18,7 +18,7 @@ share with you my program for the assignment (written in Python).
 The proxy sits between the client (usually web browser) and the server (web
 server). In our simple case, the client sends all its requests to the proxy
 instead of sending requests directly to the server. The proxy then opens a
-connection to the server, and passes on the client’s request.<!--more-->
+connection to the server, and passes on the client’s request.<!-- more -->
 Then when the proxy receives the reply from the server, it sends that reply
 back to the client. There are several reasons we use proxy for our browser:
 Performance (the proxy caches the pages that it fetched), Content Filtering and

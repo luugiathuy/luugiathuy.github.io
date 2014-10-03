@@ -16,7 +16,7 @@ published: true
 
 Reversi (Othello) is a board game (board size of 8x8) played by two players. Each player tries to turn the other's pieces to his/her own pieces. In the end the player which has more pieces on the board is the winner. You can find the detail rules on [Wikipedia][ReversiWikipedia]{:target="_blank"}
 
-The strategy I implemented for this game is based on [this website][ReversiBasicStrategy]{:target="_blank"}. It is quite simple as I assign a specific value for all positions of the board as the image below:
+The strategy I implemented for this game is based on [this website][ReversiBasicStrategy]{:target="_blank"}.<!-- more --> It is quite simple as I assign a specific value for all positions of the board as the image below:
 
 ![](/images/board6.gif)
 

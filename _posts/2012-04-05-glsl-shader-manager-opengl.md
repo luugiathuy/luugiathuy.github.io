@@ -13,7 +13,7 @@ type: post
 published: true
 ---
 
-Nowadays most of OpenGL applications use shaders (programmable pipeline) for rendering effects on graphics hardware instead of old provided functions in OpenGL 1.0 (fixed-function pipeline). There are many advantages of using shaders, such as performing arbitrary transformations on vertices and pixels, easily maintaining effect algorithms, etc. In this post I will share with you how I load, link and manage GLSL shaders in my projects.
+Nowadays most of OpenGL applications use shaders (programmable pipeline) for rendering effects on graphics hardware instead of old provided functions in OpenGL 1.0 (fixed-function pipeline). There are many advantages of using shaders, such as performing arbitrary transformations on vertices and pixels, easily maintaining effect algorithms, etc. In this post I will share with you how I load, link and manage GLSL shaders in my projects.<!-- more -->
 
 **Shader class**
 

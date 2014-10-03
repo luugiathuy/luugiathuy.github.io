@@ -11,7 +11,7 @@ type: post
 published: true
 ---
 
-My upcoming project will need to work with Qt. Our team have decided to not use Qt Creator for the project. We use Visual Studio 2008 since it is easy to configure and all members are familiar with it. In this post, I will share with you how to configure Qt for visual studio 2008.
+My upcoming project will need to work with Qt. Our team have decided to not use Qt Creator for the project. We use Visual Studio 2008 since it is easy to configure and all members are familiar with it. In this post, I will share with you how to configure Qt for visual studio 2008.<!-- more -->
 
 **_Step 1_**: Make sure Visual Studio 2008 has been updated to **SP1**. You can download the update file from [Microsoft][VisualStudio2008SP1]{:target="_blank"}
 

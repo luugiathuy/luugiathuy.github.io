@@ -11,6 +11,8 @@ layout: default
       <li>
         <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        {{ post.content | split: '<!-- more -->' | first }}
+        <a href="{{ post.url | prepend: site.baseurl }}">Continue Reading →</a>
       </li>
     {% endfor %}
   </ul>

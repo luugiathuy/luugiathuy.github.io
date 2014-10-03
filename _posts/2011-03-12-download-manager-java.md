@@ -15,7 +15,7 @@ Download manager is a program that helps us download files from Internet
 efficiently.The program can pause or resume downloads. It also can split the
 files to be downloaded into 2 or more segments, which are processed in parallel,
 making the download faster.In this post, I will share with you how I write a
-download manager program in Java with those features.
+download manager program in Java with those features.<!-- more -->
 
 **Simple Download Thread**
 
