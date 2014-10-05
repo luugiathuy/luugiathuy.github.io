@@ -19,6 +19,7 @@ been following.
 - [Better Specs](http://betterspecs.org){:target="_blank"}
 - [Rails Style Guide](https://github.com/bbatsov/rails-style-guide){:target="_blank"}
 - [Thoughbot - How we test Rails applications](http://robots.thoughtbot.com/how-we-test-rails-applications){:target="_blank"}
+- [Arel guide from RedDotRubyConf 2014](https://docs.google.com/presentation/d/1O4jYDnq8d0lSu3D2c_khKPkQ2GKCm1Fw0y1nQacmwVc/pub#slide=id.p){:target="_blank"}
 
 ### JavaScript
 
