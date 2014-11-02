@@ -10,3 +10,6 @@ github_username:  luugiathuy
 # Build settings
 markdown: kramdown
 permalink: /:year/:month/:title/
+
+gems:
+  - jekyll-sitemap
