@@ -108,6 +108,17 @@ Then, start PostgreSQL server with your created data directory:
 
 ### Integrate with Rails app
 
+To create your database for Rails app, open PosgreSQL interactive terminal:
+
+    su postgres
+    psql
+
+Then:
+
+    create database <your-database-name>;
+    \q
+    exit
+
 Install `libpg-dev` package to be able to install `pg` gem via `bundle install`:
 
     sudo apt-get install libpq-dev
