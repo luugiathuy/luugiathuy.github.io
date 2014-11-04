@@ -8,8 +8,6 @@ tags:
 - android
 - bluetooth
 - java
-status: publish
-type: post
 published: true
 ---
 

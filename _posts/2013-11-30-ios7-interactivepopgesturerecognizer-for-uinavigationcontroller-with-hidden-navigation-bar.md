@@ -8,8 +8,6 @@ tags:
 - ios
 - uinavigationbar
 - uinavigationcontroller
-status: publish
-type: post
 published: true
 ---
 

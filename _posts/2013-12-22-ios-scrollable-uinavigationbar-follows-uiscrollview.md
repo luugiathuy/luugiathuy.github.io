@@ -8,8 +8,6 @@ tags:
 - scroll
 - uinavigationbar
 - uiscrollview
-status: publish
-type: post
 published: true
 ---
 

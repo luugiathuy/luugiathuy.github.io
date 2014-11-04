@@ -5,8 +5,6 @@ categories:
 - C++
 - Problem Solving
 tags: []
-status: publish
-type: post
 published: true
 ---
 

@@ -6,8 +6,6 @@ categories:
 tags:
 - proxy
 - Python
-status: publish
-type: post
 published: true
 ---
 

@@ -7,8 +7,6 @@ tags:
 - fbo
 - frame buffer object
 - opengl
-status: publish
-type: post
 published: true
 ---
 

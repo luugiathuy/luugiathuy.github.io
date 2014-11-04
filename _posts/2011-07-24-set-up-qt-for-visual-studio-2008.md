@@ -6,8 +6,6 @@ categories:
 tags:
 - qt
 - visual studio
-status: publish
-type: post
 published: true
 ---
 

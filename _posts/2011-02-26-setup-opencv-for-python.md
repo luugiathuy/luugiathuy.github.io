@@ -6,8 +6,6 @@ categories:
 tags:
 - OpenCV
 - Python
-status: publish
-type: post
 published: true
 ---
 

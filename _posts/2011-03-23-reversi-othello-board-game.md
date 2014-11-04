@@ -9,8 +9,6 @@ tags:
 - game
 - othello
 - reversi
-status: publish
-type: post
 published: true
 ---
 

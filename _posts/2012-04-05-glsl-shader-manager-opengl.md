@@ -8,8 +8,6 @@ tags:
 - glsl
 - opengl
 - shader
-status: publish
-type: post
 published: true
 ---
 

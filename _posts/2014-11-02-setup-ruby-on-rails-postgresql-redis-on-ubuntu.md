@@ -2,15 +2,13 @@
 layout: post
 title: Setup Ruby on Rails, PostgreSQL and Redis on Ubuntu
 categories:
-- Ruby
+- DevOps
 tags:
 - ruby on rails
 - rails
 - postgresql
 - redis
 - ubuntu
-status: publish
-type: post
 published: true
 ---
 
@@ -58,9 +56,9 @@ You can skip the below setups (PostgreSQL, Redis) if you want.
 
 ## PostgreSQL
 
-### Install PostgreSQL
+### Install
 
-Install the latest version for Ubuntu via:
+Install the latest version of PostgreSQL for Ubuntu via:
 
     sudo apt-get install postgresql
 
@@ -69,7 +67,7 @@ Check the version:
     psql --version
 
 If you have any warning like `perl: warning: Setting locale failed.` (more details
-[here](http://stackoverflow.com/questions/2499794/how-can-i-fix-a-locale-warning-from-perl){:target="_blank"}, use:
+[here](http://stackoverflow.com/questions/2499794/how-can-i-fix-a-locale-warning-from-perl){:target="_blank"}), use:
 
     export LC_CTYPE=en_US.UTF-8
     export LC_ALL=en_US.UTF-8

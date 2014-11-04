@@ -6,8 +6,6 @@ categories:
 tags:
 - download manager
 - java
-status: publish
-type: post
 published: true
 ---
 
