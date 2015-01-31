@@ -12,6 +12,7 @@ been following.
 - [Eloquent Ruby](http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional-Series/dp/0321584104){:target="_blank"}
 - [Design Patterns in Ruby](http://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452){:target="_blank"}
 - [Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide){:target="_blank"}
+- [Rubocop code analyser](https://github.com/bbatsov/rubocop){:target="_blank"}
 
 ### Rails
 
@@ -41,7 +42,6 @@ been following.
 ### Objective-C
 
 - [Objective-C Style Guide](https://github.com/NYTimes/objective-c-style-guide){:target="_blank"}
-
 
 ### General
 
