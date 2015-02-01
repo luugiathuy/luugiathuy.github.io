@@ -37,10 +37,10 @@ package com.luugiathuy.apps.remotebluetooth;
 
 public class RemoteBluetoothServer{
 
-	public static void main(String[] args) {
-		Thread waitThread = new Thread(new WaitThread());
-		waitThread.start();
-	}
+    public static void main(String[] args) {
+        Thread waitThread = new Thread(new WaitThread());
+        waitThread.start();
+    }
 }
 {% endhighlight %}
 
@@ -57,51 +57,51 @@ import javax.microedition.io.Connector;
 import javax.microedition.io.StreamConnection;
 import javax.microedition.io.StreamConnectionNotifier;
 
-public class WaitThread implements Runnable{
+public class WaitThread implements Runnable {
 
-	/** Constructor */
-	public WaitThread() {
-	}
+    /** Constructor */
+    public WaitThread() {
+    }
 
-	@Override
-	public void run() {
-		waitForConnection();
-	}
+    @Override
+    public void run() {
+        waitForConnection();
+    }
 
-	/** Waiting for connection from devices */
-	private void waitForConnection() {
-		// retrieve the local Bluetooth device object
-		LocalDevice local = null;
+    /** Waiting for connection from devices */
+    private void waitForConnection() {
+        // retrieve the local Bluetooth device object
+        LocalDevice local = null;
 
-		StreamConnectionNotifier notifier;
-		StreamConnection connection = null;
+        StreamConnectionNotifier notifier;
+        StreamConnection connection = null;
 
-		// setup the server to listen for connection
-		try {
-			local = LocalDevice.getLocalDevice();
-			local.setDiscoverable(DiscoveryAgent.GIAC);
+        // setup the server to listen for connection
+        try {
+            local = LocalDevice.getLocalDevice();
+            local.setDiscoverable(DiscoveryAgent.GIAC);
 
-			UUID uuid = new UUID(80087355); // "04c6093b-0000-1000-8000-00805f9b34fb"
-			String url = "btspp://localhost:" + uuid.toString() + ";name=RemoteBluetooth";
-			notifier = (StreamConnectionNotifier)Connector.open(url);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return;
-		}
-       	       	// waiting for connection
-		while(true) {
-			try {
-				System.out.println("waiting for connection...");
-	                  	connection = notifier.acceptAndOpen();
+            UUID uuid = new UUID(80087355); // "04c6093b-0000-1000-8000-00805f9b34fb"
+            String url = "btspp://localhost:" + uuid.toString() + ";name=RemoteBluetooth";
+            notifier = (StreamConnectionNotifier)Connector.open(url);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+                // waiting for connection
+        while(true) {
+            try {
+                System.out.println("waiting for connection...");
+                        connection = notifier.acceptAndOpen();
 
-				Thread processThread = new Thread(new ProcessConnectionThread(connection));
-				processThread.start();
-			} catch (Exception e) {
-				e.printStackTrace();
-				return;
-			}
-		}
-	}
+                Thread processThread = new Thread(new ProcessConnectionThread(connection));
+                processThread.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
+            }
+        }
+    }
 }
 {% endhighlight %}
 
@@ -120,64 +120,63 @@ import java.io.InputStream;
 
 import javax.microedition.io.StreamConnection;
 
-public class ProcessConnectionThread implements Runnable{
+public class ProcessConnectionThread implements Runnable {
 
-	private StreamConnection mConnection;
+    private StreamConnection mConnection;
 
-	// Constant that indicate command from devices
-	private static final int EXIT_CMD = -1;
-	private static final int KEY_RIGHT = 1;
-	private static final int KEY_LEFT = 2;
+    // Constant that indicate command from devices
+    private static final int EXIT_CMD = -1;
+    private static final int KEY_RIGHT = 1;
+    private static final int KEY_LEFT = 2;
 
-	public ProcessConnectionThread(StreamConnection connection)
-	{
-		mConnection = connection;
-	}
+    public ProcessConnectionThread(StreamConnection connection)
+    {
+        mConnection = connection;
+    }
 
-	@Override
-	public void run() {
-		try {
-			// prepare to receive data
-			InputStream inputStream = mConnection.openInputStream();
+    @Override
+    public void run() {
+        try {
+            // prepare to receive data
+            InputStream inputStream = mConnection.openInputStream();
 
-			System.out.println("waiting for input");
+            System.out.println("waiting for input");
 
-			while (true) {
-				int command = inputStream.read();
+            while (true) {
+                int command = inputStream.read();
 
-				if (command == EXIT_CMD)
-				{
-					System.out.println("finish process");
-					break;
-				}
-				processCommand(command);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+                if (command == EXIT_CMD) {
+                    System.out.println("finish process");
+                    break;
+                }
+                processCommand(command);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	/**
-	 * Process the command from client
-	 * @param command the command code
-	 */
-	private void processCommand(int command) {
-		try {
-			Robot robot = new Robot();
-			switch (command) {
-	    		case KEY_RIGHT:
-	    			robot.keyPress(KeyEvent.VK_RIGHT);
-	    			System.out.println("Right");
-	    			break;
-	    		case KEY_LEFT:
-	    			robot.keyPress(KeyEvent.VK_LEFT);
-	    			System.out.println("Left");
-	    			break;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    /**
+     * Process the command from client
+     * @param command the command code
+     */
+    private void processCommand(int command) {
+        try {
+            Robot robot = new Robot();
+            switch (command) {
+                case KEY_RIGHT:
+                    robot.keyPress(KeyEvent.VK_RIGHT);
+                    System.out.println("Right");
+                    break;
+                case KEY_LEFT:
+                    robot.keyPress(KeyEvent.VK_LEFT);
+                    System.out.println("Left");
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 {% endhighlight %}
 
@@ -209,24 +208,24 @@ The `RemoteBluetooth` class is our main activity for this application:
 
 {% highlight java %}
 protected void onStart() {
-	super.onStart();
+    super.onStart();
 
-	// If BT is not on, request that it be enabled.
-        // setupCommand() will then be called during onActivityResult
-	if (!mBluetoothAdapter.isEnabled()) {
-		Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-		startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-	}
-	// otherwise set up the command service
-	else {
-		if (mCommandService==null)
-			setupCommand();
-	}
+    // If BT is not on, request that it be enabled.
+    // setupCommand() will then be called during onActivityResult
+    if (!mBluetoothAdapter.isEnabled()) {
+        Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+        startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+    }
+    // otherwise set up the command service
+    else {
+        if (mCommandService==null)
+            setupCommand();
+    }
 }
 
 private void setupCommand() {
-	// Initialize the BluetoothChatService to perform bluetooth connections
-        mCommandService = new BluetoothCommandService(this, mHandler);
+    // Initialize the BluetoothChatService to perform bluetooth connections
+    mCommandService = new BluetoothCommandService(this, mHandler);
 }
 {% endhighlight %}
 
@@ -237,16 +236,16 @@ Volume Up and Down buttons:
 
 {% highlight java %}
 public boolean onKeyDown(int keyCode, KeyEvent event) {
-	if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-		mCommandService.write(BluetoothCommandService.VOL_UP);
-		return true;
-	}
-	else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN){
-		mCommandService.write(BluetoothCommandService.VOL_DOWN);
-		return true;
-	}
+    if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+        mCommandService.write(BluetoothCommandService.VOL_UP);
+        return true;
+    }
+    else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN){
+        mCommandService.write(BluetoothCommandService.VOL_DOWN);
+        return true;
+    }
 
-	return super.onKeyDown(keyCode, event);
+    return super.onKeyDown(keyCode, event);
 }
 {% endhighlight %}
 
