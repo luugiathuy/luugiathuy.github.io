@@ -9,10 +9,8 @@ twitter_username: luugiathuy
 github_username: luugiathuy
 
 # Build settings
-markdown: rdiscount
+markdown: kramdown
 permalink: /:year/:month/:title/
-rdiscount:
-  extensions: [smart]
 
 gems:
   - jekyll-sitemap
