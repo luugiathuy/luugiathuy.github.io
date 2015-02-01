@@ -1,15 +1,21 @@
 # Site settings
 title: Luu Gia Thuy
+name: Luu Gia Thuy
 email: luugiathuy@gmail.com
-description: "my coding journal"
 baseurl: ""
-url: "http://luugiathuy.com"
+url: http://luugiathuy.com
+description: my coding journal
 twitter_username: luugiathuy
-github_username:  luugiathuy
+github_username: luugiathuy
 
 # Build settings
-markdown: kramdown
+markdown: rdiscount
 permalink: /:year/:month/:title/
+rdiscount:
+  extensions: [smart]
 
 gems:
   - jekyll-sitemap
+
+exclude:
+  - README.md

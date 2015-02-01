@@ -1,0 +1,33 @@
+<section class="sidebar">
+  <a href="/">
+    <img src="{{ "/images/avatar.png" | prepend: site.baseurl }}" height="75" width="75" class="avatar" />
+  </a>
+
+  <section class="name">
+    <a href="/">
+      <span id="fname">{{ site.name|split:' '|first }}</span>
+      <span id="lname">{{ site.name|split:' '|last }}</span>
+    </a>
+  </section>
+
+  <section class="meta">
+    <a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="fa fa-github"></i></a>
+    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a href="/feed.xml"><i class="fa fa-rss"></i></a>
+  </section>
+
+  <section class="sections">
+    <ul>
+      {% for page in site.pages %}
+        {% if page.title %}
+          <li>
+            <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
+              {{ page.title | downcase }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      <li><a href="/">posts</a></li>
+    </ul>
+  </section>
+</section>
