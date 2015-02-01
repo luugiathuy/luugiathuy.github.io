@@ -5,15 +5,21 @@
 
   <section class="name">
     <a href="/">
-      <span id="fname">{{ site.name|split:' '|first }}</span>
-      <span id="lname">{{ site.name|split:' '|last }}</span>
+      <span id="lname">{{ site.name }}</span>
+      <!-- <span id="fname">{{ site.name }}</span> -->
     </a>
   </section>
 
   <section class="meta">
-    <a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="fa fa-github"></i></a>
-    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank"><i class="fa fa-twitter"></i></a>
-    <a href="/feed.xml"><i class="fa fa-rss"></i></a>
+    <a href="https://github.com/{{ site.github_username }}" target="_blank">
+      <i class="fa fa-github"></i>
+    </a>
+    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+    <a href="/feed.xml">
+      <i class="fa fa-rss"></i>
+    </a>
   </section>
 
   <section class="sections">

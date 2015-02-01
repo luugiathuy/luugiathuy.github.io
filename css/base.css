@@ -24,10 +24,12 @@ a {
     border-radius: 5px; }
   .sidebar .name {
     text-transform: uppercase;
+    text-align: center;
     margin: 10px 0 20px 0; }
     .sidebar .name #fname {
       padding-left: 1px;
-      font-size: 23px;
+      font-size: 17px;
+      font-weight: bold;
       letter-spacing: 5px;
       color: black; }
     .sidebar .name #lname {
