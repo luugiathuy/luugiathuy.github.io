@@ -45,9 +45,9 @@ Install required packages for RVM:
 Check [Ruby website](https://www.ruby-lang.org/en){:target="_blank"} for the
 latest Ruby version, then install:
 
-    rvm install 2.1.4
+    rvm install 2.2.0
 
-where 2.1.4 is the Ruby version you want to install. This will take a while as it
+where `2.2.0` is the Ruby version you want to install. This will take a while as it
 downloads and compiles Ruby on your system. It also install the latest
 [RubyGems](http://rubygems.org){:target="_blank"} for you.
 
