@@ -10,3 +10,14 @@ tags:
 published: true
 ---
 
+## ImageMagick
+
+On Ubuntu, install by
+
+    sudo apt-get install imagemagick --fix-missing
+
+On MacOSX (mostly for development), install it by
+
+    brew install imagemagick
+
+

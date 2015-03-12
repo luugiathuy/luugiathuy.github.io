@@ -126,9 +126,9 @@ Install `libpg-dev` package to be able to install `pg` gem via `bundle install`:
 Follow the instruction on [Redis download page](http://redis.io/download) to
 install Redis on Ubuntu:
 
-    wget http://download.redis.io/releases/redis-2.8.17.tar.gz
-    tar xzf redis-2.8.17.tar.gz
-    cd redis-2.8.17
+    wget http://download.redis.io/releases/redis-2.8.19.tar.gz
+    tar xzf redis-2.8.19.tar.gz
+    cd redis-2.8.19
     make
     sudo make install
 
