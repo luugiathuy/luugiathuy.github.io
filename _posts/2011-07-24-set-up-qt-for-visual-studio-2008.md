@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Set up Qt for Visual Studio 2008
+description:
+  A step by step guide on how to set up a QT project for Visual Studio.
 categories:
 - C++
 tags:

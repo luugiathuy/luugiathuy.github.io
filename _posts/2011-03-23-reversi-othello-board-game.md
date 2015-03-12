@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Reversi (Othello) Game
+description:
+  A Reversi (Othello) Game with AI written in Java using Negascout algorithm.
 categories:
 - Game
 - Java

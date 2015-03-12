@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Resources
+description: 
+  My list of books and resources which I have read and been following.
 permalink: /resources/
 ---
 

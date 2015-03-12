@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Simple Web Proxy Python
+description:
+  A simple web proxy written in Python. The client sends all its requests to the proxy
+  instead of sending requests directly to the server. The proxy then opens a
+  connection to the server, and passes on the client’s request.
 categories:
 - Python
 tags:

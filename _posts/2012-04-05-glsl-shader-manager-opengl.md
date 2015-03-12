@@ -1,6 +1,8 @@
 ---
 layout: post
 title: GLSL Shader Manager OpenGL
+description:
+  An OpenGL Shader Manager for loading, compiling and linking shaders' sources.
 categories:
 - C++
 - OpenGL

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Create Frame Buffer Object OpenGL
+description:
+  Creating Frame Buffer Object (FBO) for offscreen rendering with depth and stencil buffers.
 categories:
 - OpenGL
 tags:

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Setup nginx and puma for Rails apps on Ubuntu
+description:
+  A step by step guide how to configure nginx and puma for Rails apps on Ubuntu.
 categories:
 - Rails
 tags:

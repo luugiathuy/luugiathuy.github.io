@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Rails&#58; Guardfile for RSpec
+description:
+  My Rails's Guardfile for RSpec.
 categories:
 - Rails
 tags:

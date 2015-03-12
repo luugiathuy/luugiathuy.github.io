@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Setup Ruby on Rails, PostgreSQL and Redis on Ubuntu
+description:
+  A step by step guide on how to setup Ruby on Rails (RoR), PostgreSQL and Redis on Ubuntu.
 categories:
 - DevOps
 tags:

@@ -1,7 +1,8 @@
 ---
 layout: post
-title: iOS7 interactivePopGestureRecognizer for UINavigationController with hidden
-  navigation bar
+title: iOS7 interactivePopGestureRecognizer for hidden navigation bar
+description:
+  A trick for iOS7 interactivePopGestureRecognizer method with hidden navigation bar.
 categories:
 - iOS
 tags:

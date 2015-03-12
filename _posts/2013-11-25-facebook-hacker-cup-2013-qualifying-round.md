@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Facebook Hacker Cup 2013 Qualifying Round
+description:
+  Problems and solutions for Facebook Hacker Cup programming competition.
 categories:
 - C++
 - Problem Solving

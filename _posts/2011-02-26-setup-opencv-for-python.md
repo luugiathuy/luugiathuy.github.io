@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Setup OpenCV for Python in Windows
+description: 
+  A step by step guide on how to set up OpenCV for Python on Windows.
 categories:
 - OpenCV
 tags:
