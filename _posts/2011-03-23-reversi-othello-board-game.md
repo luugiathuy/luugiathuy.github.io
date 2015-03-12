@@ -16,7 +16,7 @@ Reversi (Othello) is a board game (board size of 8x8) played by two players. Eac
 
 The strategy I implemented for this game is based on [this website][ReversiBasicStrategy]{:target="_blank"}.<!-- more --> It is quite simple as I assign a specific value for all positions of the board as the image below:
 
-![](/images/board6.gif)
+![Board value](/images/board6.gif)
 
 Here is the game you can play with the computer =D. It's quite hard to beat it.
 <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>

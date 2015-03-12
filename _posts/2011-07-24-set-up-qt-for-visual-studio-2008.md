@@ -25,11 +25,11 @@ My upcoming project will need to work with Qt. Our team have decided to not use 
 
 That's all we need to set up Qt for Visual Studio :-). Now you can open visual studio, select New Project..., we can see the **Qt4 Projects** in the list and choose the type of project we want to create:
 
-![](/images/qtnewproject.jpg)
+![QT New Project Screenshot](/images/qtnewproject.jpg)
 
 Then in the next step, we will need to select the Qt libraries to include in the project. Most often we will use GUI library, OpenGL library and XML library:
 
-![](/images/qtnewprojectsetup.jpg)
+![QT New Project Setup](/images/qtnewprojectsetup.jpg)
 
 Visual Studio automatically create the project and configure Qt for you. All you need now is code what you want :-D Hope it will help you!
 
