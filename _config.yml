@@ -11,9 +11,9 @@ github_username: luugiathuy
 # Build settings
 markdown: kramdown
 permalink: /:year/:month/:title/
-
+sass:
+  style: compressed
 gems:
   - jekyll-sitemap
-
 exclude:
   - README.md
