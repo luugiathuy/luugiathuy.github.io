@@ -2,7 +2,8 @@
 layout: post
 title: Setup OpenCV for Python in Windows
 description: 
-  A step by step guide on how to set up OpenCV for Python on Windows.
+  A step by step guide on how to set up OpenCV for Python 2.7 with NumPy, SciPy 
+  on Windows. A simple webcam demo.
 categories:
 - OpenCV
 tags:

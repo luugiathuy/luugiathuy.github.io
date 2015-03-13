@@ -3,6 +3,7 @@ layout: post
 title: Create Frame Buffer Object OpenGL
 description:
   Creating Frame Buffer Object (FBO) for offscreen rendering with depth and stencil buffers.
+  In OpenGL, frame buffer is the final destination in the rendering pipeline.
 categories:
 - OpenGL
 tags:
@@ -12,9 +13,15 @@ tags:
 published: true
 ---
 
-In OpenGL, frame buffer is the final destination in the rendering pipeline. When we create a window for our OpenGL application, it automatically create frame buffer object for us. However we need to create our own frame buffer object in some cases, such as offscreen rendering. OpenGL applications in iOS also need to create frame buffer object. In this post, I will share with you how we can create a frame buffer object (FBO).<!-- more -->
+In OpenGL, frame buffer is the final destination in the rendering pipeline.
+When we create a window for our OpenGL application, it automatically create 
+frame buffer object for us. However we need to create our own frame buffer object 
+in some cases, such as offscreen rendering. OpenGL applications in iOS also need 
+to create frame buffer object. In this post, I will share with you how we can 
+create a frame buffer object (FBO).<!-- more -->
 
-Here is the code to create a FBO with 1 color attachment and depth buffer. This is the most common FBO we will use:
+Here is the code to create a FBO with 1 color attachment and depth buffer. 
+This is the most common FBO we will use:
 
 {% highlight cpp %}
 GLuint fbo = 0;
@@ -64,7 +71,14 @@ if ( status != GL_FRAMEBUFFER_COMPLETE)
 glBindFramebuffer(GL_FRAMEBUFFER,0);
 {% endhighlight %}
 
-In the example above, we use texture for color attachment and render buffer object (RBO) for depth attachment of the FBO. In OpenGL, both types are supported for the FBO. However it prefers render buffer object to texture due to performance. Textures are used if we want the Render-To-Texture feature in our application. As for depth buffer, in some cases after rendering we need to use depth buffer for post processing, then we need to create a texture and attached it to FBO so that we can use use the texture for processing. Here is the code how we create depth buffer for FBO using texture:
+In the example above, we use texture for color attachment and render buffer 
+object (RBO) for depth attachment of the FBO. In OpenGL, both types are 
+supported for the FBO. However it prefers render buffer object to texture due 
+to performance. Textures are used if we want the Render-To-Texture feature in 
+our application. As for depth buffer, in some cases after rendering we need to 
+use depth buffer for post processing, then we need to create a texture and 
+attached it to FBO so that we can use use the texture for processing. Here is 
+the code how we create depth buffer for FBO using texture:
 
 {% highlight cpp %}
 GLuint depthTexture;
@@ -90,7 +104,12 @@ glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depth
 {% endhighlight %}
 
 
-That's for depth buffer of FBO. Now if our FBO need to have stencil buffer to support stencil testing, we have to create and attach it to the FBO. OpenGL support `GL_DEPTH24_STENCIL8` format type for texture and render buffer object (24 bit for depth buffer, 8 bit for stencil) and this is most people did to support depth and stencil buffers. For render buffer object, we just need to change the `glRenderbufferStorage` and `glFramebufferRenderbuffer` functions to:
+That's for depth buffer of FBO. Now if our FBO need to have stencil buffer to 
+support stencil testing, we have to create and attach it to the FBO. OpenGL 
+supports `GL_DEPTH24_STENCIL8` format type for texture and render buffer object 
+(24 bit for depth buffer, 8 bit for stencil) and this is most people did to 
+support depth and stencil buffers. For render buffer object, we just need to 
+change the `glRenderbufferStorage` and `glFramebufferRenderbuffer` functions to:
 
 {% highlight cpp %}
 glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, inScreenWidth, inScreenHeight);
@@ -107,4 +126,5 @@ glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8 , inScreenWidth, inScreenHeig
 glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_TEXTURE_2D, depthStencilTexture, 0);
 {% endhighlight %}
 
-That's about creating FBO to support render-to-texture features, depth and stencil testing. Hope it helps! =)
+That's about creating FBO to support render-to-texture features, depth and 
+stencil testing. Hope it helps! =)

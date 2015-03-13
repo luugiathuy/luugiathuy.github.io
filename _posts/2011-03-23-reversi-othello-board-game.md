@@ -3,6 +3,7 @@ layout: post
 title: Reversi (Othello) Game
 description:
   A Reversi (Othello) Game with AI written in Java using Negascout algorithm.
+  Reversi (Othello) is a board game (board size of 8x8) played by two players.
 categories:
 - Game
 - Java

@@ -2,7 +2,8 @@
 layout: post
 title: Rails&#58; Guardfile for RSpec
 description:
-  My Rails's Guardfile for RSpec.
+  In this post, I share with you my `Guardfile` for gem `guard-spec` which I
+  used for my Rails apps to automatically rerun specs when there are changes.
 categories:
 - Rails
 tags:
