@@ -2,8 +2,8 @@
 layout: post
 title: Create Frame Buffer Object OpenGL
 description:
-  Creating Frame Buffer Object (FBO) for offscreen rendering with depth and stencil buffers.
-  In OpenGL, frame buffer is the final destination in the rendering pipeline.
+  A tutorial/example on creating Frame Buffer Object (FBO) in OpenGL for 
+  offscreen rendering or render to texture  with depth and stencil buffers.
 categories:
 - OpenGL
 tags:

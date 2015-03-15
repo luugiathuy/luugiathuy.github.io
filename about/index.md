@@ -2,7 +2,8 @@
 layout: page
 title: About
 description:
-  About me
+  My name is Luu Gia Thuy. I am from Vietnam. I studied Computer Science in 
+  National University of Singapore (NUS). Currently I live and work in Singapore.
 permalink: /about/
 ---
 

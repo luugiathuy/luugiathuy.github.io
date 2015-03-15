@@ -3,7 +3,7 @@ layout: post
 title: File Download Manager in Java
 description:
   A download manager program written in Java which can pause/resume as well as 
-  parallel download a file.
+  parallel download multiple files.
 categories:
 - Java
 tags:

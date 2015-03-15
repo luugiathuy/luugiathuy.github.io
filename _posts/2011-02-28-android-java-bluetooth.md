@@ -2,8 +2,8 @@
 layout: post
 title: Simple Android and Java Bluetooth Application
 description:
-  A Bluetooth server/client application&#58; simple remote control Android app to 
-  control a Java Server program via Bluetooth.
+  A Bluetooth server/client application&#58; A simple client Android app to 
+  control a server Java program (using Bluecove) via Bluetooth.
 categories:
 - Android
 - Java
