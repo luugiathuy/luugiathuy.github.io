@@ -17,3 +17,8 @@ gems:
   - jekyll-sitemap
 exclude:
   - README.md
+  - reveal.js/index.html
+  - reveal.js/plugin/markdown/example.html
+  - reveal.js/plugin/notes/notes.html
+  - reveal.js/plugin/notes-server/notes.html
+  - reveal.js/test/
