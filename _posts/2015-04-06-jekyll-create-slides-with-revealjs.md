@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jekyll&#58; Create Slides with RevealJS
+title: Jekyll&#58; Create Slides with reveal.js
 description:
   reveal.js enables you to create beautiful interactive slide decks using HTML. 
   This presentation will show you how to integrate it with Jekyll to create 
