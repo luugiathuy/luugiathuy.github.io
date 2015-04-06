@@ -24,16 +24,10 @@
 
   <section class="sections">
     <ul>
-      {% for page in site.pages %}
-        {% if page.title %}
-          <li>
-            <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
-              {{ page.title | downcase }}
-            </a>
-          </li>
-        {% endif %}
-      {% endfor %}
-      <li><a href="/">posts</a></li>
+      <li><a class="page-link" href="/about">about</a></li>
+      <li><a class="page-link" href="/">posts</a></li>
+      <li><a class="page-link" href="/apps">apps</a></li>
+      <li><a class="page-link" href="/resources">resources</a></li>
     </ul>
   </section>
 </section>
