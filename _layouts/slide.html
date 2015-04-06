@@ -71,7 +71,11 @@
         progress: true,
         history: true,
         center: true,
-        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        {%if page.transition %}
+          transition: '{{page.transition}}',
+        {% else %}
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+        {% endif %}
 
         // Optional reveal.js plugins
         dependencies: [
