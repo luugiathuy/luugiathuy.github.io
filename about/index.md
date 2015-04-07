@@ -2,11 +2,13 @@
 layout: page
 title: About
 description:
-  My name is Luu Gia Thuy. I am from Vietnam. I studied Computer Science in 
-  National University of Singapore (NUS). Currently I live and work in Singapore.
+  Hello! My name is Luu Gia Thuy. I am from Vietnam. Currently I am a software 
+  engineer in Singapore.
 permalink: /about/
 ---
 
-My name is Luu Gia Thuy. I am from Vietnam. I studied Computer Science in National University of Singapore (NUS). Currently I live and work in Singapore.
+## Hello!
 
-I'm passionate about software engineer, mobile application, programming language and best practices of code.
+My name is Luu Gia Thuy. I am from Vietnam. Currently I am a software engineer 
+in Singapore. I'm passionate about software architecture, test-driven development,
+computer graphics, programming language and best practices of clean code.
