@@ -1,21 +1,11 @@
 ---
-layout: post
-title: Earth and Moon Rendering in WebGL
+layout: webgl
+title: Earth and Moon
 description:
   A simple rendering of earth and moon in WebGL using three.js. The moon is
   orbitting around the earth which rotates around its axis.
-categories:
-- webgl
-tags:
-- webgl
-- threejs
-published: true
+permalink: /webgl/sun-earth-moon-rendering/
 ---
-
-Open in [page](/webgl/sun-earth-moon-rendering)
-
-<div id="viewer" style="width:100%;height:650px;">
-</div>
 
 <script src="/js/three.min.js"></script>
 <script src="/js/sun-earth-moon.js"></script>
@@ -34,7 +24,7 @@ Open in [page](/webgl/sun-earth-moon-rendering)
   // camera
   var camera = new THREE.PerspectiveCamera(45,
     container.offsetWidth / container.offsetHeight, 1, 10000);
-  camera.position.set(0, 0, 5.3333);
+  camera.position.set(0, 0, 4);
   scene.add(camera);
 
   // earth

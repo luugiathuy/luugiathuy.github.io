@@ -1,0 +1,17 @@
+---
+# WebGL Stylesheet
+---
+
+.content {
+  width: 200px;
+  float: left;
+}
+
+#viewer {
+  position: absolute;
+  border: 0px;
+  left: 330px;
+  width: calc(100% - 330px);
+  height: 100%;
+  overflow: auto;
+}

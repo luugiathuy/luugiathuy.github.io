@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+{% include head.html %}
+<body>
+  {% include sidebar.html %}
+  <section class="content">
+    <h1>
+      <a href="/webgl">WebGL</a>
+    </h1>
+    <section class="listing">
+      <ul>
+        {% for page in site.pages %}
+          {% if page.layout == 'webgl' and page.title and page.url != '/webgl/' %}
+            <li>
+              <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">
+                {{ page.title }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </section>
+  </section>
+
+  <section id="viewer">
+  </section>
+  {{ content }}
+  {% include footer.html %}
+</body>
+</html>

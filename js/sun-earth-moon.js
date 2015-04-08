@@ -67,7 +67,7 @@ Earth.prototype.createMoon = function() {
 }
 
 Earth.RADIUS = 6371;
-Earth.ROTATION_Y = 0.003;
+Earth.ROTATION_Y = 0.01;
 Earth.TILT = 0.41;
 Earth.CLOUDS_SCALE = 1.005;
 Earth.CLOUDS_ROTATION_Y = Earth.ROTATION_Y * 0.95;
@@ -100,7 +100,6 @@ Moon.prototype.init = function() {
 
   // tilt to the ecliptic
   moon.rotation.x = Moon.INCLINATION;
-  moon.rotation.y = Math.PI / 12;
   this.object3D = moon;
 }
 
