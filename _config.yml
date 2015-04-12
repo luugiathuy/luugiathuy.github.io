@@ -22,3 +22,7 @@ exclude:
   - reveal.js/plugin/notes/notes.html
   - reveal.js/plugin/notes-server/notes.html
   - reveal.js/test/
+  - reveal.js/*.md
+  - reveal.js/Gruntfile.js
+  - reveal.js/package.json
+  - reveal.js/LICENSE
