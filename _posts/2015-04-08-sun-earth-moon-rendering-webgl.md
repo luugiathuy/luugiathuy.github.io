@@ -5,7 +5,7 @@ description:
   A simple rendering of earth and moon in WebGL using three.js. The moon is
   orbitting around the earth which rotates around its axis.
 categories:
-- webgl
+- WebGL
 tags:
 - webgl
 - threejs

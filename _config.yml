@@ -15,6 +15,7 @@ sass:
   style: compressed
 gems:
   - jekyll-sitemap
+  - jekyll-redirect-from
 exclude:
   - README.md
   - reveal.js/index.html
