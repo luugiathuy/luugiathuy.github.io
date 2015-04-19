@@ -472,8 +472,59 @@ expr
 </section>
 
 <section data-markdown>
+### Monad
+
+A monad is a parametric type `M[T]` with two operations, `flatMap` and `unit`,
+that have to satisfy some laws.
+
+```scala
+trait M[T] {
+  def flatMap[U](f: T => M[U]): M[U]
+}
+
+def unit[T](x: T): M[T]
+```
+
+</section>
+
+<section data-markdown>
+### Monad Laws
+
+To qualify as a nomad, a type has to satify three laws:
+
+#### Associativity
+
+```scala
+m flatMap f flatMap g == m flatMap (x => f(x) flatMap g)
+```
+
+#### Left unit
+
+```scala
+unit(x) flatMap f  ==  f(x)
+```
+
+#### Right unit
+
+```scala
+m flatMap unit  ==  m
+```
+</section>
+
+<section data-markdown>
+### Example of Monads
+
+- List is a monad with `unit(x) = List(x)`
+- Set is monad with `unit(x) = Set(x)`
+- Option is a monad with `unit(x) = Some(x)`
+- Generator is a monad with `unit(x) = single(x)`
+</section>
+
+<section data-markdown>
 ## References
 
 * [Functional Programming Principles in Scala - Coursera](https://www.coursera.org/course/progfun)
+
+* [Principles of Reactive Programming - Coursera](https://www.coursera.org/course/reactive)
 </section>
 
