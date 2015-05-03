@@ -2,8 +2,8 @@
 layout: post
 title: Jekyll&#58; Create Slides with reveal.js
 description:
-  reveal.js enables you to create beautiful interactive slide decks using HTML. 
-  This presentation will show you how to integrate it with Jekyll to create 
+  reveal.js enables you to create beautiful interactive slide decks using HTML.
+  This presentation will show you how to integrate it with Jekyll to create
   slide pages.
 categories:
 - Jekyll
@@ -13,7 +13,7 @@ tags:
 published: true
 ---
 
-[reveal.js](https://github.com/hakimel/reveal.js/){:target="_blank"} is a 
+[reveal.js](https://github.com/hakimel/reveal.js/){:target="_blank"} is a
 framework for creating interactive slide using HTML. It has many useful features,
 including Markdown content, PDF export and speaker notes. You can check out its
 [live demo](http://lab.hakim.se/reveal-js){:target="_blank"}. In this post I
@@ -36,14 +36,14 @@ in `_layouts` folder, the paste this content to the new file:
 
 {% gist luugiathuy/c07ac5608addadb642e5 %}
 
-This layout is based on the [index.html](https://github.com/hakimel/reveal.js/blob/master/index.html) 
+This layout is based on the [index.html](https://github.com/hakimel/reveal.js/blob/master/index.html)
 file of the live demo. I have added in some Liquid code to get the title, author,
-description as well as the theme and slide transition from the page YAML front 
+description as well as the theme and slide transition from the page YAML front
 matter.
 
 ## Example
 
-You can checkout [my slide](/slides/jekyll-create-slides-with-revealjs){:target="_blank"} of 
+You can checkout [my slide](/slides/jekyll-create-slides-with-revealjs){:target="_blank"} of
 this post. Here is the YAML front matter of the page:
 
 {% highlight yaml %}
@@ -62,8 +62,8 @@ Each slide is enclosed in a `<section>` tag. Here is an example slide using mark
 <section data-markdown>
 ## Overview
 
-[reveal.js](https://github.com/hakimel/reveal.js/) enables you to create 
-beautiful interactive slide decks using HTML. This presentation will show you 
+[reveal.js](https://github.com/hakimel/reveal.js/) enables you to create
+beautiful interactive slide decks using HTML. This presentation will show you
 how to integrate it with [Jekyll](http://jekyllrb.com/)
 </section>
 {% endhighlight %}
