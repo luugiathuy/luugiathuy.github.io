@@ -10,13 +10,7 @@ tags:
 published: true
 ---
 
-Last month I attended two coding dojo sessions in
-[Singapore Scala Programmers](http://www.meetup.com/Singapore-Scala-Programmers)
-group. We had a kata for writing a Go Game program that can determine whether a
-move is legal. In this post I will share with you my implementation of the Go's
-board as well as the move checking. To understand about Go Game as well as its
-rule, you can read it on [Wikipedia](http://en.wikipedia.org/wiki/Go_(game)) or
-the kata's description on [GitHub](https://github.com/luugiathuy/gokata).
+Last month I attended two coding dojo sessions in [Singapore Scala Programmers](http://www.meetup.com/Singapore-Scala-Programmers) group. We had a kata for writing a Go Game program that can determine whether a move is legal. In this post I will share with you my implementation of the Go's board as well as the move checking. To understand about Go Game as well as its rule, you can read it on [Wikipedia](http://en.wikipedia.org/wiki/Go_(game)) or the kata's description on [GitHub](https://github.com/luugiathuy/gokata).
 
 ## Piece
 
@@ -36,10 +30,7 @@ case object WhitePiece extends Piece {
 }
 ```
 
-I defined an abstract `Piece` class with 3 case objects: `Empty` (for
-representing unoccupied positions), `BlackPiece` and `WhitePiece`. These classes
-all have `opponentPiece` function, but mostly used by BlackPiece and WhitePiece
-to get each other piece.
+I defined an abstract `Piece` class with 3 case objects: `Empty` (for representing unoccupied positions), `BlackPiece` and `WhitePiece`. These classes all have `opponentPiece` function, but mostly used by BlackPiece and WhitePiece to get each other piece.
 
 ## Move
 
@@ -49,14 +40,11 @@ case class Move(x: Int, y: Int, piece: Piece) {
 }
 ```
 
-The `Move` class's constructor has 3 paramters, `x` and `y` represent the
-row and column coordinate on the board respectively, `piece` represents which
-player plays the move. Note that `piece` cannot be an `Empty` type.
+The `Move` class's constructor has 3 paramters, `x` and `y` represent the row and column coordinate on the board respectively, `piece` represents which player plays the move. Note that `piece` cannot be an `Empty` type.
 
 ## GoGame
 
-With `Piece` and `Move` classes above, I wrote a `GoGameDef` trait which defines
-logics of a go game:
+With `Piece` and `Move` classes above, I wrote a `GoGameDef` trait which defines logics of a go game:
 
 ```scala
 trait GoGameDef {
@@ -88,27 +76,15 @@ trait GoGameDef {
   def playMove(move: Move, boardRecord: BoardRecord): BoardRecord = ???
 ```
 
-`rowCount` and `colCount` are for defining the size of the board. A standard Go
-board has the size of 19&times;19. 13&times;13 and 9&times;9 boards are popular choices to teach beginners.
+`rowCount` and `colCount` are for defining the size of the board. A standard Go board has the size of 19&times;19. 13&times;13 and 9&times;9 boards are popular choices to teach beginners.
 
-The `Positions` type is a 2D Vector of `Piece` which represents the state of all
-positions of a board, whether it is unoccupied `Empty`, occupied by `BlackPiece`
-or `WhitePiece`. Next we have a `Board` class which has a `positions` to hold
-the state of the board and `nextPiece` to indicate which player is going to play
-next. I define a `BoardRecord` type which is a `Stream` of `Board` objects to
-record all `Board` states of a Go Game after each move.
+The `Positions` type is a 2D Vector of `Piece` objects which represents the state of all positions of a board, whether it is unoccupied `Empty`, occupied by `BlackPiece` or `WhitePiece`. Next we have a `Board` class which has a `positions` to hold the state of the board and `nextPiece` to indicate which player is going to play next. I define a `BoardRecord` type which is a `Stream` of `Board` objects to record all `Board` states of a Go Game after each move.
 
-Given a `Move` and a `BoardRecord`, the `isLegalMove` method returns `true` if
-the move is legal, false otherwise. I also have `playMove` method which simulate
-playing a move and returns a new `BoardRecord`. Our kata's objective is
-implementing the `isLegalMove` method.
+Given a `Move` and a `BoardRecord`, the `isLegalMove` method returns `true` if the move is legal, false otherwise. I also have `playMove` method which simulate playing a move and returns a new `BoardRecord`. Our kata's objective is implementing the `isLegalMove` method.
 
 ## Tests
 
-Before implementing the `isLegalMove` method, I wrote ScalaTest specs so that
-the method needs to check for all rules of a move. To define a board game easily,
-I wrote a `StringParserGoGame` which helps to parse a `Board` object from ASCII
-string:
+Before implementing the `isLegalMove` method, I wrote ScalaTest specs so that the method needs to check for all rules of a move. To define a board game easily, I wrote a `StringParserGoGame` which helps to parse a `Board` object from ASCII string:
 
 ```scala
 /**
