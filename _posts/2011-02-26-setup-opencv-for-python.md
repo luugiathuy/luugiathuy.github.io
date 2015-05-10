@@ -55,7 +55,7 @@ cv.DestroyWindow("camera")
 
 **UPDATE**
 
-1. OpenCV has just released version 2.3.1 which is more stable than 2.2 I think. You can download it [here][OpenCV2.3.1]{:target="_blank"} and try it (the setup is same as 2.2).
+1. OpenCV has just released version 2.3.1 which is more stable than 2.2 I think. You can download it [here][OpenCV2.3.1] and try it (the setup is same as 2.2).
 
 1. About the black screen you encounter with the example, I think it's because your camera is not supported. My camera works fine. You can find more information [here][CameraProblem].
 
