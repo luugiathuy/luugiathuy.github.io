@@ -272,3 +272,143 @@ trait KoRuleGame extends StringParserGoGame {
   }
 }
 ```
+
+## Implementation
+
+For rule 1-3, I have a straightforward implementation:
+
+```scala
+def isLegalMove(move: Move, boardRecord: BoardRecord): Boolean = {
+  require(boardRecord.nonEmpty)
+  val currentBoard = boardRecord.head
+
+  def isNextMove = move.piece == currentBoard.nextPiece
+  def isOccupiedPos = currentBoard.positions(move.x)(move.y) != Empty
+  def isSelfCapture: Boolean = ???
+  def isSameAsPreviousState: Boolean = ???
+
+  isNextMove && isInsideBoard(move.x, move.y) && !isOccupiedPos &&
+      !isSelfCapture && !isSameAsPreviousState
+}
+
+protected def isInsideBoard(x: Int, y: Int): Boolean = {
+  0 <= x && x < rowCount && 0 <= y && y < colCount
+}
+```
+
+To check for suicide (or self-capture) rule, we need to determine whether a move causes its group to be captured. Thus I implement a function, called `getCapturedPieces`, which returns a set of captured positions of a type `Piece`, given a `Position` board:
+
+```scala
+/**
+ + Given a board position, get all the captured pieces
+ + which are same type of the input piece
+ + @return A set contains positions of captured piece
+ */
+protected def getCapturedPieces(positions: Positions, piece: Piece): Set[(Int, Int)] = {
+  require(piece != Empty)
+
+  /**
+   + Given a position (x, y), returns list of its neighbor positions
+   */
+  def neighbors(x: Int, y: Int): List[(Int, Int)] = {
+    val neighborDisplacement = List((-1, 0), (1, 0), (0, -1), (0, 1))
+    neighborDisplacement.map({ case (dx, dy)  => (x + dx, y + dy)})
+      .filter({ case (i, j) => isInsideBoard(i, j) })
+  }
+
+  /**
+   + Get all groups which are same type of the input piece
+   */
+  def getGroups: Set[Set[(Int, Int)]] = {
+
+    /**
+     + Find the group where piece at (x, y) belongs to
+     */
+    def findGroup(x: Int, y: Int) : Set[(Int, Int)] = {
+      def visit(toVisit: Seq[(Int, Int)], visited: Set[(Int, Int)], group: Set[(Int, Int)]): Set[(Int, Int)] = {
+        if (toVisit.isEmpty) group
+        else {
+          val pos = toVisit.head
+          val toVisitFriendNeighbors = neighbors(pos._1, pos._2).toSeq.filter {
+            case(i, j) => !visited.contains((i, j)) && positions(i)(j) == positions(pos._1)(pos._2)
+          }
+          visit(toVisit.tail ++ toVisitFriendNeighbors, visited + pos, group + pos)
+        }
+      }
+
+      visit(Seq((x, y)), Set.empty, Set.empty)
+    }
+
+    def iterPos(x: Int, y: Int, visited: Set[(Int, Int)], groups: Set[Set[(Int, Int)]]): Set[Set[(Int, Int)]] = {
+      def nextPos(x: Int, y: Int): (Int, Int) = {
+        if (y < colCount - 1) (x, y + 1)
+        else if (x < rowCount - 1) (x + 1, 0)
+        else null
+      }
+
+      val group = {
+        if (positions(x)(y) == piece && !visited.contains((x, y))) findGroup(x, y)
+        else Set.empty[(Int, Int)]
+      }
+
+      nextPos(x, y) match {
+        case (i, j) => iterPos(i, j, visited ++ group, groups + group)
+        case _ => groups + group
+      }
+    }
+
+    iterPos(0, 0, Set.empty, Set.empty)
+  }
+
+  /**
+   + Whether a group is surrounded by enemy
+   */
+  def isSurrounded(group: Set[(Int, Int)]): Boolean = {
+    def hasEmptyNeighbor(x: Int, y: Int): Boolean = {
+      neighbors(x, y) exists {
+        case (i, j) => positions(i)(j) == Empty }
+    }
+    !(group exists { case(x, y) => hasEmptyNeighbor(x, y) })
+  }
+
+  getGroups.filter(isSurrounded).flatten
+}
+```
+
+The `getGroups` function uses a breadth-first search to find all connected-pieces or groups. The `isSurrounded` function tells us whether a group is surrouded by checking whether it has any `Empty` piece connected to it.
+
+With the help of this function, we can implement the `isSelfCapture` function easily:
+
+```scala
+def isSelfCapture = {
+  val canCaptureOpponent = getCapturedPieces(positionsWithMovePiece, move.piece.opponentPiece).nonEmpty
+  if (canCaptureOpponent) false
+  else {
+    // if there is any captured piece of move.piece -> self-capture move
+    val capturedOwnPieces = getCapturedPieces(positionsWithMovePiece, move.piece)
+    capturedOwnPieces.nonEmpty
+  }
+}
+
+lazy val positionsWithMovePiece = positionsWhenPlaceMove(move, currentBoard.positions)
+```
+
+First it checks whether the move can capture opponent's pieces. If yes, it means its groups will not be surrounded as there will be empty positions after taking out captured opponent's pieces. Otherwise, we check whether there is any captured group of the move's piece. If yes, it means the move is a sucide (or self-capture) move. The `positionsWhenPlaceMove` helper function returns a new board's position by simply placing the move's piece into its coordination.
+
+To check for **ko** rule, I check the `boardRecord` for the previous state and check it with the board position after playing the move.
+
+```scala
+def isSameAsPreviousState: Boolean = boardRecord match {
+  case (current#::previous#::xs) =>
+    val newPosition = removeCapturedPieces(positionsWithMovePiece, move.piece.opponentPiece)
+    previous.positions == newPosition
+  case _ => false
+}
+```
+
+The `removeCapturedPieces` helper function will take out captured pieces and return new board's position.
+
+- - -
+
+That is my implementation for a legal move checking in Go Game. For more details of the code, please visit its repository on my [GitHub](https://github.com/luugiathuy/gokata).
+
