@@ -11,11 +11,11 @@ tags:
 published: true
 ---
 
-My upcoming project will need to work with Qt. Our team have decided to not use Qt Creator for the project. We use Visual Studio 2008 since it is easy to configure and all members are familiar with it. In this post, I will share with you how to configure Qt for visual studio 2008.<!-- more -->
+My upcoming project will need to work with Qt. Our team have decided to not use Qt Creator for the project. We use Visual Studio 2008 since it is easy to configure and all members are familiar with it. In this post, I will share with you how to configure Qt for visual studio 2008.
 
-**_Step 1_**: Make sure Visual Studio 2008 has been updated to **SP1**. You can download the update file from [Microsoft][VisualStudio2008SP1]{:target="_blank"}
+**_Step 1_**: Make sure Visual Studio 2008 has been updated to **SP1**. You can download the update file from [Microsoft][VisualStudio2008SP1]
 
-**_Step 2_**: Download and install the latest Qt library for Visual Studio from [Qt site][QtVisualStudio2008]{:target="_blank"}
+**_Step 2_**: Download and install the latest Qt library for Visual Studio from [Qt site][QtVisualStudio2008]
 
 **_Step 3_**: Set up Windows Path in Environment Variables
 
@@ -23,9 +23,9 @@ My upcoming project will need to work with Qt. Our team have decided to not use 
 
   2. Add `;%QTDIR%bin` to the `PATH` variable.
 
-**_Step 4_**: Download and install Qt add-in for Visual Studio from [Qt site][QtVS2008AddIn]{:target="_blank"}
+**_Step 4_**: Download and install Qt add-in for Visual Studio from [Qt site][QtVS2008AddIn]
 
-That's all we need to set up Qt for Visual Studio :-). Now you can open visual studio, select New Project..., we can see the **Qt4 Projects** in the list and choose the type of project we want to create:
+That's all we need to set up Qt for Visual Studio :-). Now you can open visual studio, select **New Project...**, we can see the **Qt4 Projects** in the list and choose the type of project we want to create:
 
 ![QT New Project Screenshot](/images/qtnewproject.jpg)
 

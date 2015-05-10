@@ -82,7 +82,7 @@ The `Positions` type is a 2D Vector of `Piece` objects which represents the stat
 
 Given a `Move` and a `BoardRecord`, the `isLegalMove` method returns `true` if the move is legal, false otherwise. I also have `playMove` method which simulate playing a move and returns a new `BoardRecord`. Our kata's objective is implementing the `isLegalMove` method.
 
-## Tests
+## Test Cases
 
 Before implementing the `isLegalMove` method, I wrote ScalaTest specs so that the method needs to check for all rules of a move. To define a board game easily, I wrote a `StringParserGoGame` which helps to parse a `Board` object from ASCII string:
 

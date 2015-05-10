@@ -10,7 +10,7 @@ tags:
 published: true
 ---
 
-## Install Arch Linux: 
+## Install Arch Linux
 
 - [http://archlinuxarm.org/platforms/armv7/allwinner/cubieboard-2](http://archlinuxarm.org/platforms/armv7/allwinner/cubieboard-2)
 - [https://github.com/edwardoid/cubieboard-arch-installer](https://github.com/edwardoid/cubieboard-arch-installer)
@@ -19,7 +19,7 @@ published: true
 
     pacman -Syu linux-armv7
 
-## Change hostname:
+## Change hostname
 
     hostnamectl set-hostname myhostname
 

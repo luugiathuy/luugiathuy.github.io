@@ -2,8 +2,7 @@
 layout: post
 title: Simple Android and Java Bluetooth Application
 description:
-  A Bluetooth server/client application&#58; A simple client Android app to 
-  control a server Java program (using Bluecove) via Bluetooth.
+  A Bluetooth server/client application&#58; A simple client Android app to control a server Java program (using Bluecove) via Bluetooth.
 categories:
 - Android
 - Java
@@ -14,28 +13,15 @@ tags:
 published: true
 ---
 
-Last week was my school's recess week. I had a lot of free time and decided to
-learn Java and Android Bluetooth by reading the
-[Bluetooth development guide for Android][AndroidBluetoothGuide]{:target="_blank"}.
-Then I had an idea to make my Android phone become a simple remote control for
-my laptop, just for controlling the Power Point slides for presentation. The
-volume up and volume down become buttons for going to next and previous slide
-respectively.<!-- more --> I write this post to share with you what I have done.
-I have used Ecipse IDE to write the program.
+Last week was my school's recess week. I had a lot of free time and decided to learn Java and Android Bluetooth by reading the [Bluetooth development guide for Android][AndroidBluetoothGuide]. Then I had an idea to make my Android phone become a simple remote control for my laptop, just for controlling the Power Point slides for presentation. The volume up and volume down become buttons for going to next and previous slide respectively. I write this post to share with you what I have done. I have used Ecipse IDE to write the program.
 
 **REMOTE CONTROL SERVER (Java)**
 
-Firstly, we need to write the remote control server to receive the signal from
-Android phone. I used a Java library for Bluetooth called
-[BlueCove][BlueCoveHomepage]{:target="_blank} to implement the server. You can
-download the [bluecove-2.1.0.jar][BlueCove2.1.0]{:target="_blank"} file and add
-it to your external library. Note that **for Linux**, you need to install the
-`bluez-libs` to your system and add `bluecove-gpl-2.1.0.jar` to external library
-of the project as well (more information [here][BlueCoveForLinux]{:target="_blank"}).
+Firstly, we need to write the remote control server to receive the signal from Android phone. I used a Java library for Bluetooth called [BlueCove][BlueCoveHomepage] to implement the server. You can download the [bluecove-2.1.0.jar][BlueCove2.1.0] file and add it to your external library. Note that **for Linux**, you need to install the `bluez-libs` to your system and add `bluecove-gpl-2.1.0.jar` to external library of the project as well (more information [here][BlueCoveForLinux]).
 
-Here is my RemoteBluetoothServer class:
+Here is my *RemoteBluetoothServer* class:
 
-{% highlight java %}
+```java
 package com.luugiathuy.apps.remotebluetooth;
 
 public class RemoteBluetoothServer{
@@ -45,12 +31,11 @@ public class RemoteBluetoothServer{
         waitThread.start();
     }
 }
-{% endhighlight %}
+```
 
-The main method creates a thread to wait for connection from client and handle
-the signal.
+The main method creates a thread to wait for connection from client and handle the signal.
 
-{% highlight java %}
+```java
 package com.luugiathuy.apps.remotebluetooth;
 
 import javax.bluetooth.DiscoveryAgent;
@@ -106,15 +91,11 @@ public class WaitThread implements Runnable {
         }
     }
 }
-{% endhighlight %}
+```
 
-In `waitForConnection()` function, firstly it sets up the server by setting the
-device discoverable, creating the UUID for this application (the client needs
-this to communicate with server). Then it waits for a connection from a client.
-When it receives initial connection, it creates ProcessConnectionThread to handle
-the client's command. Here is the code for `ProcessConnectionThread`:
+In `waitForConnection()` function, firstly it sets up the server by setting the device discoverable, creating the UUID for this application (the client needs this to communicate with server). Then it waits for a connection from a client. When it receives initial connection, it creates a `ProcessConnectionThread` to handle the client's command. Here is the code for `ProcessConnectionThread` class:
 
-{% highlight java %}
+```java
 package com.luugiathuy.apps.remotebluetooth;
 
 import java.awt.Robot;
@@ -181,35 +162,21 @@ public class ProcessConnectionThread implements Runnable {
         }
     }
 }
-{% endhighlight %}
+```
 
-The `ProcessConnectionThread` mainly waiting for the client's inputs and process
-them. This is simple remote control only for going next/previous of Power Point
-slide so it only process *KEY_RIGHT* and *KEY_LEFT* input. I use *Robot* class
-from `java.awt.Robot` to generate the key events.
+The `ProcessConnectionThread` mainly waiting for the client's inputs and process them. This is simple remote control only for going next/previous of Power Point slide so it only process *KEY_RIGHT* and *KEY_LEFT* input. I use *Robot* class from `java.awt.Robot` to generate the key events.
 
-That's all we need for the Remote Control Server. _**When you run the server on
-a computer, make sure that the Bluetooth is ON.**_
+That's all we need for the Remote Control Server. _**When you run the server on a computer, make sure that the Bluetooth is ON.**_
 
 **REMOTE CONTROL CLIENT (Android)**
 
-For the client on Android phone, I have followed the guide from
-[Android Developer Guide][AndroidBluetoothGuide]{:target="_blank"} and the
-[sample Bluetooth Chat application][BluetoothChatSample]{:target="_blank"} (You
-can find this application in the android sdk sample folder).
+For the client on Android phone, I have followed the guide from [Android Developer Guide][AndroidBluetoothGuide] and the [sample Bluetooth Chat application][BluetoothChatSample] (You can find this application in the android sdk sample folder).
 
-My program is based on the sample application. The `DeviceListActivity` class is
-for scanning devices around to find the remote server and connect to it. The
-`BluetoothCommandService` class is for setting up the connection and sending the
-command to our Remote Control Server. These two files are similar to the sample
-application. In BluetoothCommandService, I have removed the `AcceptThread` since
-the client not need to wait for any connection. The `ConnectThread` is for
-initializing the connection with server. The `ConnectedThread` is for sending
-the command to server.
+My program is based on the sample application. The `DeviceListActivity` class is for scanning devices around to find the remote server and connect to it. The `BluetoothCommandService` class is for setting up the connection and sending the command to our Remote Control Server. These two files are similar to the sample application. In BluetoothCommandService, I have removed the `AcceptThread` since the client not need to wait for any connection. The `ConnectThread` is for initializing the connection with server. The `ConnectedThread` is for sending the command to server.
 
 The `RemoteBluetooth` class is our main activity for this application:
 
-{% highlight java %}
+```java
 protected void onStart() {
     super.onStart();
 
@@ -230,14 +197,11 @@ private void setupCommand() {
     // Initialize the BluetoothChatService to perform bluetooth connections
     mCommandService = new BluetoothCommandService(this, mHandler);
 }
-{% endhighlight %}
+```
 
-The `onStart()` function to check whether the bluetooth on our phone is enabled
-or not. If not, it creates an Intent to turn the bluetooth on. The `setupCommand()`
-to create `BluetoothCommandService` object to send the command when we push the
-Volume Up and Down buttons:
+The `onStart()` function to check whether the bluetooth on our phone is enabled or not. If not, it creates an Intent to turn the bluetooth on. The `setupCommand()` to create `BluetoothCommandService` object to send the command when we push the Volume Up and Down buttons:
 
-{% highlight java %}
+```java
 public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
         mCommandService.write(BluetoothCommandService.VOL_UP);
@@ -250,17 +214,13 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 
     return super.onKeyDown(keyCode, event);
 }
-{% endhighlight %}
+```
 
-That's it. Now we can run the server, install the application to the phone and
-run it :-)
+That's it. Now we can run the server, install the application to the phone and run it :-)
 
-You can go to [my GitHub][Remote-Bluetooth-Android-GitHub]{:target="_blank"} to
-download the project for client and server.
+You can go to [my GitHub][Remote-Bluetooth-Android-GitHub] to download the project for client and server.
 
-**Update:** I developed this application using android sdk 2.1. And as comments
-below, the application is not working with Android SDK 3.x. I don't have Android
-tablet to test it yet. Sorry about that.
+**Update:** I developed this application using android sdk 2.1. And as comments below, the application is not working with Android SDK 3.x. I don't have Android tablet to test it yet. Sorry about that.
 
 [AndroidBluetoothGuide]: http://developer.android.com/guide/topics/wireless/bluetooth.html
 [BlueCoveHomepage]: http://bluecove.org

@@ -2,9 +2,7 @@
 layout: post
 title: GLSL Shader Manager OpenGL
 description:
-  An OpenGL Shader Manager for loading, compiling and linking shaders' sources.
-  Nowadays most of OpenGL applications use shaders (programmable pipeline) for 
-  rendering effects on graphics hardware
+  An OpenGL Shader Manager for loading, compiling and linking shaders' sources. Nowadays most of OpenGL applications use shaders (programmable pipeline) for rendering effects on graphics hardware
 categories:
 - C++
 - OpenGL
@@ -15,16 +13,11 @@ tags:
 published: true
 ---
 
-Nowadays most of OpenGL applications use shaders (programmable pipeline) for 
-rendering effects on graphics hardware instead of old provided functions in 
-OpenGL 1.0 (fixed-function pipeline). There are many advantages of using shaders, 
-such as performing arbitrary transformations on vertices and pixels, easily 
-maintaining effect algorithms, etc. In this post I will share with you how I load, 
-link and manage GLSL shaders in my projects.<!-- more -->
+Nowadays most of OpenGL applications use shaders (programmable pipeline) for rendering effects on graphics hardware instead of old provided functions in OpenGL 1.0 (fixed-function pipeline). There are many advantages of using shaders, such as performing arbitrary transformations on vertices and pixels, easily maintaining effect algorithms, etc. In this post I will share with you how I load, link and manage GLSL shaders in my projects.
 
 **Shader class**
 
-{% highlight cpp %}
+```cpp
 #pragma once
 
 #ifndef SHADER_H
@@ -84,14 +77,11 @@ protected:
 }; // end class CShader
 
 #endif
-{% endhighlight %}
+```
 
-The member field `m_VariableMap` is for storing indices of attribute and uniform 
-variables in a shader program. Later in the rendering loop, the program can look 
-up these indices via `GetAttributeIndex` and `GetUniformIndex` functions. Below 
-is the implementation for these functions:
+The member field `m_VariableMap` is for storing indices of attribute and uniform variables in a shader program. Later in the rendering loop, the program can look up these indices via `GetAttributeIndex` and `GetUniformIndex` functions. Below is the implementation for these functions:
 
-{% highlight cpp %}
+```cpp
 int CShader::GetUniformIndex(const char* inVarName)
 {
   return GetVariableIndex(inVarName, true);;
@@ -123,17 +113,13 @@ int CShader::GetVariableIndex(const char *inVarName, bool inIsUniform)
   }
   return theResult;
 }
-{% endhighlight %}
+```
 
 **Shader Manager class**
 
-The Shader Manager class loads source code of shaders, compiles them, creates 
-shader programs and links them to OpenGL context. It also stores Shader class 
-object pointer to the map variable `m_ShaderMap` so that the application can 
-retrieve the shaders later without loading/linking again. Here is the header of 
-the class:
+The Shader Manager class loads source code of shaders, compiles them, creates shader programs and links them to OpenGL context. It also stores Shader class object pointer to the map variable `m_ShaderMap` so that the application can retrieve the shaders later without loading/linking again. Here is the header of the class:
 
-{% highlight cpp %}
+```cpp
 #pragma once
 
 #ifndef SHADER_MANAGER_H
@@ -210,14 +196,11 @@ protected:
   char** LoadSource(int&amp; outLineCount, const std::string&amp; inFileName);
 }; // end class ShaderManager
 #endif
-{% endhighlight %}
+```
 
-The `GetShader` function will look up the map `m_ShaderMap` for requested shader 
-before loading it. If the shader cannot be found or there is error while 
-compiling it, the default shader object which has index program of 0 will be 
-returned.
+The `GetShader` function will look up the map `m_ShaderMap` for requested shader before loading it. If the shader cannot be found or there is error while compiling it, the default shader object which has index program of 0 will be returned.
 
-{% highlight cpp %}
+```cpp
 CShader* CShaderManager::GetShader(const char* inVertFileName, const char* inFragFileName, const char* inGeomFileName)
 {
   std::string theString = inVertFileName;
@@ -245,14 +228,11 @@ CShader* CShaderManager::GetShader(const char* inVertFileName, const char* inFra
   // if load/link unsuccessfully, return default shader which program = 0
   return m_ShaderMap[DEFAULT_SHADER];
 }
-{% endhighlight %}
+```
 
-Note that I use the shaders' file names as the keys for the shader objects in 
-`m_ShaderMap` variable. The implementations of other functions are easily to 
-understand as I have commented in the header. Here is the code for loading, 
-compiling and creating a shader:
+Note that I use the shaders' file names as the keys for the shader objects in `m_ShaderMap` variable. The implementations of other functions are easily to understand as I have commented in the header. Here is the code for loading, compiling and creating a shader:
 
-{% highlight cpp %}
+```cpp
 bool CShaderManager::LoadShader(unsigned int inShaderType, const std::string& inFileName, GLuint &inOutShader)
 {
   if (inFileName.empty()) {
@@ -304,13 +284,8 @@ bool CShaderManager::LoadShader(unsigned int inShaderType, const std::string& in
 
   return true;
 } // end LoadShader
-{% endhighlight %}
+```
 
-That's it. It is a simple way to manage GLSL shaders in an application I think. 
-If you have another implementation for this, feel free to comment below so that 
-we can discuss. The source codes for these classes can be found at 
-[my GitHub][GLSLShaderManager-github]{:target="_blank"}. I have also included a 
-simple OpenGL program in main.cpp for testing so you can have a look to see how 
-to use these classes. Hope you enjoy the post! :-)
+That's it. It is a simple way to manage GLSL shaders in an application I think. If you have another implementation for this, feel free to comment below so that we can discuss. The source codes for these classes can be found at [my GitHub][GLSLShaderManager-github]. I have also included a simple OpenGL program in main.cpp for testing so you can have a look to see how to use these classes. Hope you enjoy the post! :-)
 
 [GLSLShaderManager-github]: https://github.com/luugiathuy/GLSLShaderManager
