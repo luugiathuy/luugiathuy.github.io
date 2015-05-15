@@ -1,6 +1,8 @@
 ---
 layout: slide
 title: Programming in Scala
+description:
+  A slide to summarize basic programming in Scala.
 theme: black
 transition: slide
 permalink: /slides/programming-in-scala/

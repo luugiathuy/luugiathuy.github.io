@@ -2,8 +2,7 @@
 layout: page
 title: About
 description:
-  Hello! My name is Luu Gia Thuy. I am from Vietnam. Currently I am a software 
-  engineer in Singapore.
+  Hello! My name is Luu Gia Thuy. I am from Vietnam. Currently I am a software engineer in Singapore.
 permalink: /about/
 ---
 

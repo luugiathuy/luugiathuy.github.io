@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Apps
+description: List of my apps
 permalink: /apps/
 ---
 

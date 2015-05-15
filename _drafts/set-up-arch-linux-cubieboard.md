@@ -29,6 +29,10 @@ published: true
     
         useradd -m -G wheel -s /bin/bash <username>
 
+1. Specify the new user account's password:
+
+        passwd <username>
+
 1. Edit `sudoers` list by typing `visudo`, look for the below line and uncomment it to allow wheel group to execute commands. 
 
         %wheel ALL=(ALL) ALL
