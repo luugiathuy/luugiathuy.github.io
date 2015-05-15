@@ -24,7 +24,7 @@ Here is the game you can play with the computer =D. It's quite hard to beat it.
 
 <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
 <script type="text/javascript">
-  var attributes = {code:'com.luugiathuy.games.reversi.ReversiApplet.class',width:560, height:500};var parameters = {jnlp_href:'http://luugiathuy.com/projects/games/reversi/Reversi.jnlp'};var version = '1.6';deployJava.runApplet(attributes, parameters, version);
+  var attributes = {code:'com.luugiathuy.games.reversi.ReversiApplet.class',width:560, height:500};var parameters = {jnlp_href:'http://luugiathuy.com/applets/Reversi.jnlp'};var version = '1.6';deployJava.runApplet(attributes, parameters, version);
 </script>
 <noscript>This page requires JavaScript.</noscript>
 <script type="text/javascript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js" language="JavaScript"></script><script type="text/javascript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js" language="JavaScript">
