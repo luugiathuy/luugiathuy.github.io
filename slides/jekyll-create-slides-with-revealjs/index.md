@@ -66,22 +66,20 @@ transition: slide
 </section>
 
 <section data-markdown>
-<script type="text/template">
 ## Slide
 
-Each slide is enclosed in a `<section>` tag:
-
+Each slide is enclosed in a `&lt;section&gt;` tag:
 
 ```html
-<section data-markdown>
+&lt;section data-markdown&gt;
 ## Overview
 
 [reveal.js](https://github.com/hakimel/reveal.js/) enables you to create
 beautiful interactive slide decks using HTML. This presentation will show you
 how to integrate it with [Jekyll](http://jekyllrb.com/)
-</section>
+&lt;/section&gt;
 ```
-</script>
+
 </section>
 
 <section data-markdown>

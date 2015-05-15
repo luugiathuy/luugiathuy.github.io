@@ -10,11 +10,9 @@ github_username: luugiathuy
 linkedin_username: luugiathuy
 
 # Build settings
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-highlighter: rouge
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]
 permalink: /:year/:month/:title/
 sass:
   style: compressed

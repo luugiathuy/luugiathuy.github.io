@@ -21,6 +21,7 @@ The strategy I implemented for this game is based on [this website][ReversiBasic
 ![Board value](/images/board6.gif)
 
 Here is the game you can play with the computer =D. It's quite hard to beat it.
+
 <script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
 <script type="text/javascript">
   var attributes = {code:'com.luugiathuy.games.reversi.ReversiApplet.class',width:560, height:500};var parameters = {jnlp_href:'http://luugiathuy.com/projects/games/reversi/Reversi.jnlp'};var version = '1.6';deployJava.runApplet(attributes, parameters, version);
