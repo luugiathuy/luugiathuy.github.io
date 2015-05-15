@@ -20,20 +20,6 @@ The strategy I implemented for this game is based on [this website][ReversiBasic
 
 ![Board value](/images/board6.gif)
 
-Here is the game you can play with the computer =D. It's quite hard to beat it.
-
-<script type="text/javascript" src="http://www.java.com/js/deployJava.js"></script>
-<script type="text/javascript">
-  var attributes = {code:'com.luugiathuy.games.reversi.ReversiApplet.class',width:560, height:500};var parameters = {jnlp_href:'http://luugiathuy.com/applets/Reversi.jnlp'};var version = '1.6';deployJava.runApplet(attributes, parameters, version);
-</script>
-<noscript>This page requires JavaScript.</noscript>
-<script type="text/javascript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code_download.js" language="JavaScript"></script><script type="text/javascript" src="http://www.oracle.com/ocom/groups/systemobject/@mktg_admin/documents/systemobject/s_code.js" language="JavaScript">
-</script>
-<script type="text/javascript" language="javascript">
-  var s_code = s.t();
-  if (s_code) document.write(s_code);
-</script>
-
 For searching the optimal move, I have used [Negascout][NegascoutWikipedia] algorithm. This can be faster than alpha-beta prunning algorithm.
 
 ```java
@@ -95,7 +81,11 @@ public MoveScore abNegascout(char[][] board, int ply, int alpha, int beta, char 
 }
 ```
 
-You can download the source code of the game at [my GitHub][ReversiGitHub]. Hope you enjoy it! =D
+- - -
+
+Here is the [Reversi.jar](/files/Reversi.jar) file which you can download and play with the AI. It's hard to beat it =P. You can download the source code of the game at [my GitHub][ReversiGitHub]. 
+
+Hope you enjoy it!
 
 [ReversiWikipedia]: http://en.wikipedia.org/wiki/Reversi/Othello
 [ReversiBasicStrategy]: http://www.site-constructor.com/othello/Present/Basic_Strategy.html
