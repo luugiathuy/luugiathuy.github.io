@@ -2,6 +2,7 @@
 layout: post
 title: Set up Arch Linux on Cubieboard 2
 description:
+  A step by step guide on setting up user account, ssh login, access point and connect to a Wi-Fi network. Install AUR packages on Arch Linux.
 categories:
 - Hardware
 tags:
